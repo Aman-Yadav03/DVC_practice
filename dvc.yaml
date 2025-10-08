@@ -1,0 +1,15 @@
+stages:
+
+  build_features:
+    cmd: python .\src\features\build_features.py
+    deps:
+    - .\data\raw\
+    - .\src\features\build_features.py
+
+  train:
+    cmd: python src/train.py data/processed.csv model/model.pkl
+    deps:
+    - data/processed.csv
+    - src/train.py
+    outs:
+    - model/model.pkl
